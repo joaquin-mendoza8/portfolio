@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <style>
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+
+    <div class="container-fluid">
+
+        <div
+        class="d-flex flex-row align-items-center align-self-center"
+        style="padding-top: 60px">
+
+            <div class="p-2">
+                <h1 class="text-primary"><b>Experience</b></h1>
+            </div>
+            
+        </div>
+
+        <div
+        class="d-flex flex-column align-items-right align-self-center"
+        style="padding-top: 25px;">
+
+            <div class="p-2 mb-5">
+                <h2 class="text-secondary-emphasis">Software Engineer Intern</h2>
+
+                <h4>
+                    <a 
+                        class="text-secondary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                        href="https://www.realfrequency.com/">
+                        Real Frequency
+                    </a>
+
+                    <img src="https://abrudz.github.io/logos/Python.svg" class="p-1" alt="Python">
+                    <img src="https://cdn.buttercms.com/w8lc0UqsQCnPG0Ax6aiM" class="p-1" alt="Flask">
+                    <img src="https://abrudz.github.io/logos/JS.svg" class="rounded p-1" alt="JavaScript">
+                </h4>
+                <p class="text-secondary">
+                    <i class="bi bi-geo-alt-fill"></i> Spokane, WA (Remote)
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <i class="bi bi-calendar3" id="experience-date-rf"></i> May 2023 - Present 
+                    <span id="rf-date-container"></span>
+                </p>
+            
+                <ul>
+                    <li class="text-secondary-emphasis">Developed Flask-based web app utilizing Docker, Heroku, and SQL, organizing user data for 11+ businesses and improving data accessibility.</li>
+                    <li class="text-secondary-emphasis">Implemented CI/CD pipelines with GitHub Actions, ensured zero-cost automated delivery of features and fixes.</li>
+                    <li class="text-secondary-emphasis">Transformed decision-making with dynamic and interactive data visualizations using Pandas and Plotly.</li>
+                    <li class="text-secondary-emphasis">Catalyzed rapid prototyping with Trello, enhancing project delivery and shrinking project timelines by 3+ weeks.</li>
+                </ul>
+
+            </div>
+
+            <div class="p-2 mb-5">
+                <h2 class="text-secondary-emphasis">Research Student Assistant</h2>
+                
+                <h4>
+                    <a 
+                        class="text-secondary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                        href="https://sdsu-research-ci.github.io/">
+                        SDSU Research & Cyberinfrastructure
+                    </a>
+                    <img src="https://abrudz.github.io/logos/Python.svg" class="p-1" alt="Python">
+                    <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/97_Docker_logo_logos-512.png"
+                    class="p-1" alt="Docker">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/1055px-Kubernetes_logo_without_workmark.svg.png"                           
+                    class="p-1" alt="Kubernetes">
+                </h4>
+            
+                <p class="text-secondary">
+                    <i class="bi bi-geo-alt-fill"></i> San Diego, CA
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <i class="bi bi-calendar3" id="experience-date-rci"></i> December 2022 - Present
+                    <span id="rci-date-container"></span>
+                </p>
+            
+                <ul>
+                    <li class="text-secondary-emphasis">Built instruction-facing Docker containers on National Research Platform’s (NRP) hypercluster: Nautilus.</li>
+                    <li class="text-secondary-emphasis">Produced weekly GPU utilization reports with Grafana and PromQL, positioned department for future grants.</li>
+                    <li class="text-secondary-emphasis">Harnessed DevOps practices with Git and CI/CD pipelines, delivered features and bug fixes weekly.</li>
+                    <li class="text-secondary-emphasis">Recorded JupyterHub/Linux tutorials for 300+ students and researchers, reduced ServiceNow tickets by 50%.</li>
+                </ul>
+
+            </div>
+
+
+            
+        </div>
+
+        <div class="p-2">
+
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="container-fluid">
+
+    <div
+        class="d-flex flex-row align-items-center align-self-center"
+        style="padding-top: 80px">
+            <div class="p-2">
+                <img src="https://avatars.githubusercontent.com/u/95003828?v=4" 
+                class="rounded-circle" alt="Joaquin Mendoza" width="200" height="200">
+            </div>
+            <div class="p-2">
+                <h1 class="text-primary"><b>Joaquin Mendoza</b></h1>
+                <h2 class="text-secondary-emphasis">Software Engineer Intern</h2>
+                <p class="text-secondary"><i class="bi bi-geo-alt-fill"></i> San Diego, California</p>
+
+                <div class="flex mb-0">
+                  <a
+                    class="btn btn-primary bg-dark mx-1 text-light mt-2 border border-secondary"
+                    href="mailto:{{ email }}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="bi bi-envelope"></i>
+                  </a>
+                  <a
+                    class="btn btn-primary bg-dark mx-1 text-light mt-2 border border-secondary"
+                    data-toggle="Github"
+                    href="{{ github }}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="bi bi-github"></i>
+                  </a>
+                  <a
+                    class="btn btn-primary bg-dark mx-1 text-light mt-2 border border-secondary"
+                    href="{{ linkedin }}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="bi bi-linkedin"></i>
+                  </a>
+                </div>
+            </div>
+    </div>
+
+    
+
+
+      <!-- <h1 class="text-primary"><b>Joaquin Mendoza</b></h1>
+      <h2 class="text-secondary">Software Engineer Intern</h2> -->
+
+  </div>
+
+{% endblock %}
