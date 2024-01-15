@@ -1,53 +1,371 @@
 {% extends 'base.html' %}
 
+{% block title %} Home {% endblock %}
+
 {% block content %}
 
-  <div class="container-fluid">
+  <div class="slider-thumb"></div>
 
-    <div
-        class="d-flex flex-row align-items-center align-self-center"
-        style="padding-top: 80px">
-            <div class="p-2">
-                <img src="https://avatars.githubusercontent.com/u/95003828?v=4" 
-                class="rounded-circle" alt="Joaquin Mendoza" width="200" height="200">
-            </div>
-            <div class="p-2">
-                <h1 class="text-primary"><b>Joaquin Mendoza</b></h1>
-                <h2 class="text-secondary-emphasis">Software Engineer Intern</h2>
-                <p class="text-secondary"><i class="bi bi-geo-alt-fill"></i> San Diego, California</p>
+  <div id="container">
 
-                <div class="flex mb-0">
-                  <a
-                    class="btn btn-primary bg-dark mx-1 text-light mt-2 border border-secondary"
-                    href="mailto:{{ email }}"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="bi bi-envelope"></i>
-                  </a>
-                  <a
-                    class="btn btn-primary bg-dark mx-1 text-light mt-2 border border-secondary"
-                    data-toggle="Github"
-                    href="{{ github }}"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="bi bi-github"></i>
-                  </a>
-                  <a
-                    class="btn btn-primary bg-dark mx-1 text-light mt-2 border border-secondary"
-                    href="{{ linkedin }}"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="bi bi-linkedin"></i>
-                  </a>
+    <section id="home">
+
+      <!-- <div class="p-2">
+          <img src="https://avatars.githubusercontent.com/u/95003828?v=4" 
+          class="rounded-circle" alt="Joaquin Mendoza" width="200" height="200">
+      </div> -->
+
+      <div class="p-2">
+
+        <header class="my-16">
+          <h1 id="first-header">Joaquin Mendoza</h1>
+          <h2 id="second-header">Software Engineer Intern</h2>
+          
+          <p class="mt-4 text-wrap opacity-75">
+            I orchestrate seamless DevOps workflows and craft compelling 
+            data visualizations to bring insights to life on the web.
+          </p>
+        </header>
+
+        <nav class="nav hidden lg-block">
+          <ul id="nav-list">
+            <li>
+              <a class="nav-link px-0" href="#home" id="nav-link">
+                <span class="nav-text">Home</span>
+                <div class="nav-blob-indicator"></div>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link px-0" href="#experience" id="nav-link">
+                <span class="nav-text">Experience</span>
+                <div class="nav-blob-indicator"></div>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link px-0" href="#projects" id="nav-link">
+                <span class="nav-text">Projects</span>
+                <div class="nav-blob-indicator"></div>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link px-0" href="#contact" id="nav-link">
+                <span class="nav-text">Contact</span>
+                <div class="nav-blob-indicator"></div>
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+
+        <div class="contact-icons lg-block">
+
+            <a
+              class="btn mr-5"
+              href="mailto:{{ email }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="contact-icon">
+              <i class="bi bi-envelope fs-3"></i>
+            </a>
+            <a
+              class="btn mr-5"
+              data-toggle="Github"
+              href="{{ github }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="contact-icon">
+              <i class="bi bi-github fs-3"></i>
+            </a>
+            <a
+              class="btn mr-5"
+              href="{{ linkedin }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="contact-icon">
+              <i class="bi bi-linkedin fs-3"></i>
+            </a>
+
+        </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="experience">
+
+      <header class="my-16">
+        <div class="p-2">
+            <h1 id="first-header">Experience</h1>
+        </div>
+      </header>
+
+      <div id="split-section">
+
+        <div id="right-side-section">
+
+          <ol>
+            <li id="experience-card-section">
+              <div class="relative grid" id="experience-card">
+                <div class="col-span-6">
+
+                  <div class="date-column">
+                    <h4 id="date-header">May 2023 - Present</h4>
+                  </div>
+
+                  <div class="content-column">
+                    <a href="https://www.realfrequency.com/"
+                    target="_blank" rel="noreferrer noopener">
+                      <h2 id="experience-header">
+                        Real Frequency
+                        <span class="material-symbols-outlined" id="arrow-icon">
+                          north_east
+                        </span>
+                      </h2>
+                    </a>
+                    <h3 id="third-header">Spokane, WA (Remote)</h3>
+
+                    <p class="mt-2 text-sm">
+                      Developing Flask-based web apps with Docker, Papertrail, Heroku, and SQL for 11+ businesses, 
+                      organizing user data. Implementing CI/CD pipelines with GitHub Actions for zero-cost automated 
+                      feature delivery. Dynamic data visualizations using Pandas and Plotly.
+                    </p>
+
+                    <ul class="technologies">
+                      <li class="tech-bubble">Flask</li>
+                      <li class="tech-bubble">Python</li>
+                      <li class="tech-bubble">HTML</li>
+                      <li class="tech-bubble">SQL</li>
+                      <li class="tech-bubble">JavaScript</li>
+                      <li class="tech-bubble">JQuery</li>
+                    </ul>
+                  </div>
+
+              </div>
+            </li>
+            <li id="experience-card-section">
+              <div class="relative grid" id="experience-card">
+                <div class="col-span-6">
+
+                  <div class="date-column">
+                    <h4 id="date-header">Dec 2022 - Present</h4>
+                  </div>
+
+                  <div class="content-column">
+                    <a class="inline-flex items-baseline" href="https://www.realfrequency.com/"
+                    target="_blank" rel="noreferrer noopener">
+                      <h2 id="experience-header">
+                        SDSU Research & Cyberinfrastructure
+                        <span class="material-symbols-outlined" id="arrow-icon">
+                          north_east
+                        </span>
+                      </h2>
+                    </a>
+                    <h3 id="third-header">San Diego, CA</h3>
+
+                    <p class="mt-2 text-sm">
+                      Built instruction-facing Docker containers on National Research Platform's (NRP) hypercluster: Nautilus.
+                      Produced weekly GPU utilization reports with Grafana and PromQL, positioned department for future grants.
+                      Harnessed DevOps practices with Git and CI/CD pipelines, delivered features and bug fixes weekly.
+                    </p>
+
+                    <ul class="experience-links">
+                      <li id="experience-link-container">
+                        <a href="https://sdsu-research-ci.github.io/instructionalcluster" id="experience-link" target="_blank">
+                          <span class="material-symbols-outlined" id="link-icon">
+                            link
+                          </span>
+                          Instructional Cluster
+                        </a>
+                    </ul>
+
+                    <ul class="technologies">
+                      <li class="tech-bubble">Kubernetes</li>
+                      <li class="tech-bubble">Docker</li>
+                      <li class="tech-bubble">Linux</li>
+                      <li class="tech-bubble">Python</li>
+                      <li class="tech-bubble">CI/CD</li>
+                      <li class="tech-bubble">Git</li>
+                    </ul>
+                  </div>
+
                 </div>
-            </div>
-    </div>
+              </div>
+            </li>
+          </ol>
 
-    
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="projects">
+
+      <header class="my-16">
+        <div class="p-2">
+            <h1 id="first-header">Projects</h1>
+        </div>
+      </header>
+
+      <div id="split-section">
+
+        <div id="right-side-section">
+          <ol class="project-cards">
+            <li id="experience-card-section">
+              <div class="relative grid" id="experience-card">
+                <div class="col-span-6">
+
+                  <div class="date-column">
+                    <h4 id="date-header">Dec 2022 - Present</h4>
+                  </div>
+
+                  <div class="content-column">
+                    <a class="inline-flex items-baseline" href="https://www.realfrequency.com/"
+                    target="_blank" rel="noreferrer noopener">
+                      <h2 id="experience-header">
+                        Client Data Reporting System
+                        <span class="material-symbols-outlined" id="arrow-icon">
+                          north_east
+                        </span>
+                      </h2>
+                    </a>
+                    <h3 id="third-header">Real Frequency</h3>
+
+                    <p class="mt-2 text-sm">
+                      Automated CSV data reports across 11+ organizations, used Flask, Docker, Plotly, and Heroku.
+                      Built centralized logging system, resulting in a mean decrease of 3 hours in weekly system downtime.
+                      Replaced all manual data-entry of user data, end goal of providing real-time data visualizations.                      
+                    </p>
+
+                    <ul class="experience-links">
+                      <li id="experience-link-container">
+                    </ul>
+
+                    <ul class="technologies">
+                      <li class="tech-bubble">Flask</li>
+                      <li class="tech-bubble">Python</li>
+                      <li class="tech-bubble">HTML</li>
+                      <li class="tech-bubble">SQL</li>
+                      <li class="tech-bubble">JavaScript</li>
+                      <li class="tech-bubble">CI/CD</li>
+                      <li class="tech-bubble">Git</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </li>
+
+            <li id="experience-card-section">
+              <div class="relative grid" id="experience-card">
+                <div class="col-span-6">
+
+                  <div class="date-column">
+                    <h4 id="date-header">Dec 2023</h4>
+                  </div>
+
+                  <div class="content-column">
+                    <a class="inline-flex items-baseline" href="https://www.realfrequency.com/"
+                    target="_blank" rel="noreferrer noopener">
+                      <h2 id="experience-header">
+                        Storage Provisioning for Kubernetes Cluster
+                        <span class="material-symbols-outlined" id="arrow-icon">
+                          north_east
+                        </span>
+                      </h2>
+                    </a>
+                    <h3 id="third-header">San Diego, CA</h3>
+
+                    <p class="mt-2 text-sm">
+                      Constructed conditionally provisioned Persistent Volume Claims (PVC) for Public Health graduate courses.
+                      Designed provisioning logic with Python, KubeSpawner, and Helm, guaranteed access to 100+ GB biomedical datasets.
+                      Eliminated large file transfers or local copies, resulted in streamlined data access for graduate students. 
+                    </p>
+
+                    <ul class="experience-links">
+                      <li id="experience-link-container">
+                        <a href="https://sdsu-research-ci.github.io/instructionalcluster" id="experience-link" target="_blank">
+                          <span class="material-symbols-outlined" id="link-icon">
+                            link
+                          </span>
+                          Instructional Cluster
+                        </a>
+                    </ul>
+
+                    <ul class="technologies">
+                      <li class="tech-bubble">Kubernetes</li>
+                      <li class="tech-bubble">Linux</li>
+                      <li class="tech-bubble">Python</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </li>
+
+            <li id="experience-card-section">
+              <div class="relative grid" id="experience-card">
+                <div class="col-span-6">
+
+                  <div class="date-column">
+                    <h4 id="date-header">Dec 2022 - Present</h4>
+                  </div>
+
+                  <div class="content-column">
+                    <a class="inline-flex items-baseline" href="https://www.realfrequency.com/"
+                    target="_blank" rel="noreferrer noopener">
+                      <h2 id="experience-header">
+                        Storage Provisioning for Kubernetes Cluster
+                        <span class="material-symbols-outlined" id="arrow-icon">
+                          north_east
+                        </span>
+                      </h2>
+                    </a>
+                    <h3 id="third-header">SDSU Research & Cyberinfrastructure</h3>
+
+                    <p class="mt-2 text-sm">
+                      Constructed conditionally provisioned Persistent Volume Claims (PVC) for Public Health graduate courses.
+                      Designed provisioning logic with Python, KubeSpawner, and Helm, guaranteed access to 100+ GB biomedical datasets.
+                      Eliminated large file transfers or local copies, resulted in streamlined data access for graduate students.                      
+                    </p>
+
+                    <ul class="experience-links">
+                      <li id="experience-link-container">
+                        <a href="https://sdsu-research-ci.github.io/instructionalcluster" id="experience-link">
+                          <span class="material-symbols-outlined" id="link-icon">
+                            link
+                          </span>
+                          Instructional Cluster
+                        </a>
+                    </ul>
+
+                    <ul class="technologies">
+                      <li class="tech-bubble">Kubernetes</li>
+                      <li class="tech-bubble">Docker</li>
+                      <li class="tech-bubble">Linux</li>
+                      <li class="tech-bubble">Python</li>
+                      <li class="tech-bubble">CI/CD</li>
+                      <li class="tech-bubble">Git</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </li>
+
+          </ol>
+        </div>
+
+      </div>
+
+    </section>
 
 
-      <!-- <h1 class="text-primary"><b>Joaquin Mendoza</b></h1>
-      <h2 class="text-secondary">Software Engineer Intern</h2> -->
+    <!-- <footer class="footer fixed-bottom">
+      <div class="container text-center">
+        <p id="footer-text">&copy; {{ current_year }} Joaquin Mendoza. All rights reserved.</p>
+      </div>
+    </footer> -->
 
   </div>
 
