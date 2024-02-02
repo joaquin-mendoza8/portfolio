@@ -354,6 +354,10 @@ a {
     width: 40%;
 }
 
+.emp-txt {
+    font-weight: bold;
+    color: rgb(10, 255, 202);
+}
 
 
 /* BLOB BACKGROUND */
