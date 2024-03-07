@@ -2,7 +2,6 @@
 <html lang="en" class="scroll-smooth">
 <head>
 
-    <!-- Google Analytics -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVQZVQ29NY"></script>
     <script>
@@ -42,6 +41,7 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <link
       rel="stylesheet"
@@ -54,6 +54,18 @@
 
 </head>
 <body>
+
+<!-- Resume Viewer -->
+<div id="pdfViewerContainer" style="display: none;">
+  <a id="closePdfViewer" href="/index.html">
+    <span class="material-symbols-outlined">
+      close
+    </span>
+  </a>
+  <div id="pdfViewer">
+    <iframe id="pdfIframe" src="JMendoza_Resume.pdf" frameborder="0"></iframe>
+  </div>
+</div>
 
 <div class="container-lg">
 
@@ -95,6 +107,12 @@
                 <div class="nav-blob-indicator"></div>
               </a>
             </li>
+            <li>
+              <a class="nav-link px-0"  id="openViewerButton">
+                <span class="nav-text">Résumé</span>
+                <div class="nav-blob-indicator"></div>
+              </a>
+            </li>
             
           </ul>
         </nav>
@@ -125,6 +143,15 @@
               rel="noopener noreferrer"
               id="contact-icon">
               <i class="bi bi-linkedin fs-3"></i>
+            </a>
+            <!-- spotify -->
+            <a
+              class="btn mr-5"
+              href="https://open.spotify.com/user/rcaj9swec465uuoyi0yfgcbzb?si=5159a11341bc4c36"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="contact-icon">
+              <i class="bi bi-spotify fs-3"></i>
             </a>
 
         </div>

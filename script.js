@@ -24,6 +24,36 @@ document.addEventListener('DOMContentLoaded', function() {
         
     });
 
+    // LISTEN FOR RESUME BUTTON CLICK --------------------------------------------
+    document.getElementById("openViewerButton").addEventListener("click", function() {
+        document.getElementById("pdfViewerContainer").style.display = "block";
+        document.body.style.overflow = "hidden"; // Prevent scrolling on the background content
+    });
+      
+    document.getElementById("pdfViewerContainer").addEventListener("click", function(e) {
+        if (e.target.id === "pdfViewerContainer") {
+            document.getElementById("pdfViewerContainer").style.display = "none";
+            document.body.style.overflow = ""; // Restore scrolling on the background content
+        }
+    });
+
+    // document.getElementById('closePdfViewer').addEventListener('click', function() {
+    //     document.getElementById('pdfViewerContainer').style.display = 'none';
+    // });
+
+    // document.getElementById('closePdfViewer').addEventListener('click', function() {
+    //     var pdfIframe = document.getElementById('pdfIframe');
+    //     // Add the fadeOut class to #pdfIframe
+    //     pdfIframe.classList.add('fadeOut');
+    //     // Wait for the animation to finish, then hide #pdfViewerContainer
+    //     setTimeout(function() {
+    //         document.getElementById('pdfViewerContainer').style.display = 'none';
+    //         // Remove the fadeOut class so the fadeIn animation can play again next time
+    //         pdfIframe.classList.remove('fadeOut');
+    //     }, 1000); // The timeout should be equal to the duration of the fadeOut animation
+    // });
+      
+
 });
 
 
