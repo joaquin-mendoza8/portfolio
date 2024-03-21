@@ -361,24 +361,12 @@ a {
     display: inline-flex;
     list-style: none;
     padding: 0;
+    margin: 0;
     flex-wrap: wrap;
 }
 
-.tech-bubble {
-    background-color: rgba(10, 255, 205, 0.08);
-    color: rgba(10, 255, 202, 1);
-
-    font-weight: 500;
-    font-size: 0.75rem;
-    border-radius: 9999px;
-    padding: 0.3rem 1rem;
-    margin-right: 0.25rem;
-    margin-bottom: 0.25rem;
-    opacity: 1;
-}
-
-.experience-links {
-    margin-bottom: 1rem;
+.experience-links li {
+    margin-right: 20px;
 }
 
 #experience-link, #link-icon {
@@ -392,6 +380,19 @@ a {
 
 #link-icon {
     rotate: -45deg;
+}
+
+.tech-bubble {
+    background-color: rgba(10, 255, 205, 0.08);
+    color: rgba(10, 255, 202, 1);
+
+    font-weight: 500;
+    font-size: 0.75rem;
+    border-radius: 9999px;
+    padding: 0.3rem 1rem;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+    opacity: 1;
 }
 
 
