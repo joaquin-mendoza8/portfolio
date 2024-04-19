@@ -338,6 +338,7 @@ a {
     /* focus in on the card */
     transform: scale(1.05);
     transition: transform 0.5s ease-in-out;
+    
 }
 
 #arrow-icon {
@@ -373,17 +374,18 @@ a {
 }
 
 .project-menu {
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0px 0px 5px 0px rgba(10, 255, 202, 0.5);
-    border-radius: 10px;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    /* box-shadow: 0px 0px 5px 0px rgba(10, 255, 202, 0.5); */
+    /* border-radius: 10px; */
     display: inline-flex;
     list-style: none;
     padding: 1rem;
     flex-wrap: wrap;
 }
 
-.selected {
+.selected, .project-menu-bubble:hover {
     background-color: #003538 !important;
+    box-shadow: 0px 0px 5px 0px rgba(10, 255, 202, 0.5);
 }
 
 .experience-links {
@@ -423,6 +425,7 @@ a {
 /* SECTION - PROJECTS MENU */
 
 .project-menu-bubble {
+    transition: transform 0.1s ease-in-out;
     background-color: rgba(10, 255, 153, 0.08);
     color: rgb(10, 255, 153);
 
@@ -443,7 +446,7 @@ a {
 
     /* focus in on the card */
     transform: scale(1.05);
-    transition: transform 0.01s ease-in-out;
+    transition: transform 0.1s ease-in-out;
 }
 
 /* SECTION - PROJECTS */
