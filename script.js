@@ -1,5 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // MAINTAIN BLOB PROPORTIONS ----------------------------------------
+
+    // get blob
+    var blob = document.querySelector('.slider-thumb');
+
+    // get blob dimensions
+    const computedStyle = getComputedStyle(blob);
+    const initWidthPx = computedStyle.getPropertyValue('width');
+    const initHeightPx = computedStyle.getPropertyValue('height');
+
+    const initWidth = pxToV(initWidthPx, window.innerWidth);
+    const initHeight = pxToV(initHeightPx, window.innerHeight);
+
+    // add missing variable declarations
+    var width, height;
+
+    // initial blob position in vw/vh
+    const blobLeftPx = computedStyle.getPropertyValue('left');
+    const blobTopPx = computedStyle.getPropertyValue('top');
+
+    const blobLeft = pxToV(blobLeftPx, window.innerWidth);
+    const blobTop = pxToV(blobTopPx, window.innerHeight);
+
 
     // UPDATE BLOB SIZE ON SCROLL -------------------------------------
 
@@ -24,37 +47,76 @@ document.addEventListener('DOMContentLoaded', function() {
         
     });
 
-    // LISTEN FOR RESUME BUTTON CLICK --------------------------------------------
-    document.getElementById("openViewerButton").addEventListener("click", function() {
-        document.getElementById("pdfViewerContainer").style.display = "block";
-        document.body.style.overflow = "hidden"; // Prevent scrolling on the background content
+    // UPDATE NAV LINKS ON SCROLL --------------------------------------------
+
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Add event listener for scroll
+    window.addEventListener('scroll', () => {
+        updateNavLinks(navLinks);
     });
-      
-    document.getElementById("pdfViewerContainer").addEventListener("click", function(e) {
-        if (e.target.id === "pdfViewerContainer") {
-            document.getElementById("pdfViewerContainer").style.display = "none";
-            document.body.style.overflow = ""; // Restore scrolling on the background content
+
+    // Get the PDF viewer elements
+    const pdfViewerContainer = document.getElementById('pdfViewerContainer');
+
+    // Add event listener for scroll
+    window.addEventListener('scroll', () => {
+        // Get the current scroll position
+        const scrollPosition = window.scrollY;
+
+        // If the user scrolls to the bottom of the page, open the PDF viewer
+        if (scrollPosition >= (document.body.scrollHeight - window.innerHeight)) {
+            pdfViewerContainer.style.display = 'block';
+            document.body.style.overflow = "hidden";
         }
+
     });
 
-    // document.getElementById('closePdfViewer').addEventListener('click', function() {
-    //     document.getElementById('pdfViewerContainer').style.display = 'none';
-    // });
-
-    // document.getElementById('closePdfViewer').addEventListener('click', function() {
-    //     var pdfIframe = document.getElementById('pdfIframe');
-    //     // Add the fadeOut class to #pdfIframe
-    //     pdfIframe.classList.add('fadeOut');
-    //     // Wait for the animation to finish, then hide #pdfViewerContainer
-    //     setTimeout(function() {
-    //         document.getElementById('pdfViewerContainer').style.display = 'none';
-    //         // Remove the fadeOut class so the fadeIn animation can play again next time
-    //         pdfIframe.classList.remove('fadeOut');
-    //     }, 1000); // The timeout should be equal to the duration of the fadeOut animation
-    // });
-      
-
+    // Add event listener for click on the close button
+    document.getElementById('closePdfViewer').addEventListener('click', () => {
+        hidePDFViewer();
+        // Hide the PDF viewer
+        // pdfViewerContainer.style.display = 'none';
+        // document.body.style.overflow = "";
+    });
 });
+
+function hidePDFViewer() {
+  const pdfViewerContainer = document.getElementById('pdfViewerContainer');
+
+  pdfViewerContainer.style.display = 'none';
+  document.body.style.overflow = "";
+}
+
+
+// Update navigation links on scroll
+function updateNavLinks(navLinks) {
+  // Get the current scroll position
+  const scrollPosition = window.scrollY;
+
+  // Iterate over each section and check if it's in view
+  document.querySelectorAll('section').forEach((section) => {
+    const sectionId = section.id;
+    const sectionOffset = section.offsetTop - 450;
+
+    // If the section is in view, update the active state of the corresponding navigation link
+    if (scrollPosition >= sectionOffset) {
+      navLinks.forEach((link) => {
+        // Remove active class from all links
+        link.classList.remove('active');
+
+        // Add active class to the link corresponding to the current section
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+
+  // also hide PDF viewer, if showing
+  hidePDFViewer();
+}
 
 
 // Increase/decrease blob size on scroll ------------------------------------
@@ -63,18 +125,26 @@ function updateBlobSize() {
     // get blob
     var blob = document.querySelector('.slider-thumb');
 
-    // initial blob size
-    var initWidth = 38;
-    var initHeight = 79;
+    // get blob dimensions
+    const computedStyle = getComputedStyle(blob);
+    const initWidthPx = computedStyle.getPropertyValue('width');
+    const initHeightPx = computedStyle.getPropertyValue('height');
+
+    const initWidth = pxToV(initWidthPx, window.innerWidth);
+    const initHeight = pxToV(initHeightPx, window.innerHeight);
+
 
     // add missing variable declarations
     var width, height;
 
     // initial blob position in vw/vh
-    var blobLeft = 42;
-    var blobTop = 12;
+    const blobLeftPx = computedStyle.getPropertyValue('left');
+    const blobTopPx = computedStyle.getPropertyValue('top');
 
-    // change color of blob when scrolling
+    const blobLeft = pxToV(blobLeftPx, window.innerWidth);
+    const blobTop = pxToV(blobTopPx, window.innerHeight);
+
+    // add scroll event listener
     window.addEventListener('scroll', function() {
 
         // get scroll direction
@@ -111,4 +181,56 @@ function updateBlobSize() {
         blob.style.top = top + 'vh';
 
     });
+}
+
+// convert px to vw/vh
+function pxToV(px, windowSize) {
+    return Math.ceil((parseFloat(px) / windowSize) * 100);
+}
+
+function displayContent(categoryId) {
+
+  // list of all project category id's
+  const categories = ['ml', 'web-dev', 'dev-ops'];
+
+  for (var i = 0; i < categories.length; i++) {
+
+    // hide all cards that aren't in selected category
+    if (categories[i] != categoryId && categoryId != 'all') {
+      var categoriesToHide = document.querySelectorAll('#' + categories[i]);
+      // console.log(categoriesToHide);
+      categoriesToHide.forEach((category) => {
+        category.style.display = 'none';
+      });
+
+    // show all relevant cards
+    } else {
+      var categoriesToDisplay = document.querySelectorAll('#' + categories[i]);
+      // console.log(categoriesToDisplay);
+      categoriesToDisplay.forEach((category) => {
+        category.style.display = 'inline-flex';
+      });
+    }
+  }
+
+  // update menu
+  const menuBubbles = document.querySelectorAll(".project-menu-bubble");
+  console.log(menuBubbles);
+  menuBubbles.forEach((b) => {
+    if (b.classList.contains('selected')) {
+      b.classList.remove('selected');
+    }
+  });
+
+  if (categoryId == 'ml') {
+    document.getElementById('ml-btn').classList.add('selected');
+  } else if (categoryId == 'web-dev') {
+    document.getElementById('web-btn').classList.add('selected');
+  } else if (categoryId == 'dev-ops') {
+    document.getElementById('dev-btn').classList.add('selected');
+  } else {
+    document.getElementById('all-btn').classList.add('selected');
+  }
+
+
 }

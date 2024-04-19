@@ -30,13 +30,17 @@
 #right-side-section {
     display: flex;
     flex-direction: row;
-    width: 70%;
+    width: 60%;
     height: 100%;
 }
 
 #home {
     margin-top: 10vh;
-
+    position: fixed;
+    top: 0;
+    left: 50px; /* Adjust as needed */
+    z-index: 1000; /* Ensure it's above other content */
+    width: 200px; /* Adjust width as needed */
 }
 
 #projects {
@@ -144,7 +148,7 @@ li {
     transition: margin-left 0.3s ease-in-out;
 }
 
-#nav-link:hover, #openViewerButton:hover {
+#nav-link:hover, #openViewerButton:hover, .nav-link.px-0.active {
     visibility: visible;
     font-weight: 700;
     margin-left: 1.2rem;
@@ -155,6 +159,10 @@ li {
 }
 
 #openViewerButton:hover .nav-blob-indicator {
+    visibility: visible;
+}
+
+.nav-link.px-0.active .nav-blob-indicator {
     visibility: visible;
 }
 
@@ -197,7 +205,7 @@ li {
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
     /* blur background */
     backdrop-filter: blur(100px);
-    z-index: 9999;
+    /* z-index: 9999; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -212,11 +220,11 @@ li {
 
 #pdfIframe {
     animation: fadeIn 1s ease-in-out;
-    width: 80%;
+    width: 50%;
     height: 80%;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 60%;
     transform: translate(-50%, -50%); 
 }
 
@@ -288,7 +296,7 @@ a {
     opacity: 1;
 }
 
-#experience-card-section {
+.experience-card-section, .project-menu-section {
     margin-bottom: 10vh;
 }
 
@@ -314,7 +322,7 @@ a {
 }
 
 
-#experience-card:hover #experience-header {
+#experience-header {
     color: #0AFFCA;
 }
 
@@ -361,8 +369,25 @@ a {
     display: inline-flex;
     list-style: none;
     padding: 0;
-    margin: 0;
     flex-wrap: wrap;
+}
+
+.project-menu {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 5px 0px rgba(10, 255, 202, 0.5);
+    border-radius: 10px;
+    display: inline-flex;
+    list-style: none;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+.selected {
+    background-color: #003538 !important;
+}
+
+.experience-links {
+    margin-bottom: 1rem;
 }
 
 .experience-links li {
@@ -395,6 +420,31 @@ a {
     opacity: 1;
 }
 
+/* SECTION - PROJECTS MENU */
+
+.project-menu-bubble {
+    background-color: rgba(10, 255, 153, 0.08);
+    color: rgb(10, 255, 153);
+
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 9999px;
+    padding: 0.3rem 1rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.25rem;
+    opacity: 1;
+
+}
+
+.project-menu-bubble:hover {
+    background-color: rgba(10, 255, 153, 0.2);
+    color: rgb(10, 255, 153);
+    /* font-weight: 700; */
+
+    /* focus in on the card */
+    transform: scale(1.05);
+    transition: transform 0.01s ease-in-out;
+}
 
 /* SECTION - PROJECTS */
 
@@ -435,10 +485,10 @@ body {
 .slider-thumb {
     position: fixed;
     content: "";
-    left: 42vw;
-    top: 12vh;
-    width: 38vw;
-    height: 79vh;
+    left: 45%;
+    top: 10vh;
+    width: 40%;
+    height: 80%;
     background: #17141d;
     border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
     box-shadow: 0px 0px 15px 0px rgb(10, 255, 202);
@@ -447,6 +497,16 @@ body {
     display: block;
     z-index: -1;
     -webkit-animation: sliderShape 5s linear infinite;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .slider-thumb {
+        width: 40%;
+        height: 80%;
+        left: 30%; /* Adjust the left position for smaller screens */
+        top: 10%; /* Adjust the top position for smaller screens */
+    }
 }
 
 @keyframes sliderShape{
