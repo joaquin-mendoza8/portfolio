@@ -214,23 +214,76 @@ function displayContent(categoryId) {
   }
 
   // update menu
-  const menuBubbles = document.querySelectorAll(".project-menu-bubble");
-  console.log(menuBubbles);
+  var menuBubbles = document.querySelectorAll(".project-menu-bubble");
+  menuBubbles = Array.from(menuBubbles).filter(
+    (e) => !['pro-btn', 'leader-btn']
+    .includes(e.id)
+  );
+  
   menuBubbles.forEach((b) => {
     if (b.classList.contains('selected')) {
       b.classList.remove('selected');
     }
   });
 
-  if (categoryId == 'ml') {
-    document.getElementById('ml-btn').classList.add('selected');
-  } else if (categoryId == 'web-dev') {
-    document.getElementById('web-btn').classList.add('selected');
-  } else if (categoryId == 'dev-ops') {
-    document.getElementById('dev-btn').classList.add('selected');
-  } else {
-    document.getElementById('all-btn').classList.add('selected');
+  switch (categoryId) {
+    case 'ml':
+      document.getElementById('ml-btn').classList.add('selected');
+      break;
+    case 'web-dev':
+      document.getElementById('web-btn').classList.add('selected');
+      break;
+    case 'dev-ops':
+      document.getElementById('dev-btn').classList.add('selected');
+      break;
+    case 'all':
+      document.getElementById('all-btn').classList.add('selected');
+      break;
   }
 
+}
 
+function displayExperience(categoryId) {
+  const categories = ['pro', 'leader'];
+
+  for (var i = 0; i < categories.length; i++) {
+
+    // hide all cards that aren't in selected category
+    if (categories[i] != categoryId && categoryId != 'all') {
+      var categoriesToHide = document.querySelectorAll('#' + categories[i]);
+      // console.log(categoriesToHide);
+      categoriesToHide.forEach((category) => {
+        category.style.display = 'none';
+      });
+
+    // show all relevant cards
+    } else {
+      var categoriesToDisplay = document.querySelectorAll('#' + categories[i]);
+      // console.log(categoriesToDisplay);
+      categoriesToDisplay.forEach((category) => {
+        category.style.display = 'inline-flex';
+      });
+    }
+  }
+
+  // update menu
+  var menuBubbles = document.querySelectorAll(".project-menu-bubble");
+  menuBubbles = Array.from(menuBubbles).filter((e) => ['pro-btn', 'leader-btn'].includes(e.id));
+
+  console.log(menuBubbles);
+
+  menuBubbles.forEach((b) => {
+    if (b.classList.contains('selected')) {
+      b.classList.remove('selected');
+    }
+  });
+
+  switch (categoryId) {
+    case 'pro':
+      document.getElementById('pro-btn').classList.add('selected');
+      break;
+    case 'leader':
+      document.getElementById('leader-btn').classList.add('selected');
+      break;
+  }
 }

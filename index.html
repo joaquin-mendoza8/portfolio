@@ -166,18 +166,21 @@
 
     <section id="experience">
 
-      <!-- <header class="my-16">
-        <div class="p-2">
-            <h1 id="first-header">Experience</h1>
-        </div>
-      </header> -->
-
       <div id="split-section">
 
         <div id="right-side-section">
 
-          <ol>
-            <li class="experience-card-section">
+          <ol class="project-cards">
+
+            <!-- Projects Filter Menu -->
+            <li class="project-menu-section">
+              <ul class="project-menu">
+                <a onclick="displayExperience('pro')"><li class="project-menu-bubble selected" id="pro-btn">Professional</li></a>
+                <a onclick="displayExperience('leader')"><li class="project-menu-bubble" id="leader-btn">Leadership</li></a>
+              </ul>
+            </li>
+
+            <li class="experience-card-section" id="pro">
               <div class="relative grid" id="experience-card">
                 <div class="col-span-6">
 
@@ -215,7 +218,8 @@
 
               </div>
             </li>
-            <li class="experience-card-section">
+
+            <li class="experience-card-section" id="pro">
               <div class="relative grid" id="experience-card">
                 <div class="col-span-6">
 
@@ -272,6 +276,100 @@
                 </div>
               </div>
             </li>
+
+            <li class="experience-card-section" id="leader">
+              <div class="relative grid" id="experience-card">
+                <div class="col-span-6">
+
+                  <div class="date-column">
+                    <h4 id="date-header">May 2022 - May 2023</h4>
+                  </div>
+
+                  <div class="content-column">
+                    <a href="https://arc.sdsu.edu/waterski"
+                    target="_blank" rel="noreferrer noopener">
+                      <h2 id="experience-header">
+                        Vice President
+                        <span class="material-symbols-outlined" id="arrow-icon">
+                          north_east
+                        </span>
+                      </h2>
+                    </a>
+                    <h3 id="third-header">SDSU Waterski Team · San Diego, CA</h3>
+
+                    <p class="mt-2 text-sm">
+                      Led a team of 60+ members to organize and host the 2023 Western Regionals Waterski Tournament.
+                    </p>
+
+                    <ul class="experience-links">
+                      <li id="experience-link-container">
+                        <a href="https://youtu.be/Pt5-pQAk9Dk?si=moSKP5-at1FZ1cOa" id="experience-link" target="_blank">
+                          <i class="bi bi-youtube" style="opacity: 0.8;"></i>
+                          Recruitment Video
+                        </a>
+                      </li>
+                    </ul>
+
+                    <ul class="technologies">
+                      <li class="tech-bubble">Public Speaking</li>
+                      <li class="tech-bubble">Public Speaking</li>
+                      <li class="tech-bubble">Public Speaking</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </li>
+
+            <li class="experience-card-section" id="leader">
+              <div class="relative grid" id="experience-card">
+                <div class="col-span-6">
+
+                  <div class="date-column">
+                    <h4 id="date-header">Jan 2024 - Present</h4>
+                  </div>
+
+                  <div class="content-column">
+                    <a href="https://aiclub.sdsu.edu/"
+                    target="_blank" rel="noreferrer noopener">
+                      <h2 id="experience-header">
+                        Project Leader
+                        <span class="material-symbols-outlined" id="arrow-icon">
+                          north_east
+                        </span>
+                      </h2>
+                    </a>
+                    <h3 id="third-header">SDSU AI Club · San Diego, CA</h3>
+
+                    <p class="mt-2 text-sm">
+                      Lead a team of three to develop a geospatial clustering algorithm to identify habitats of endangered species
+                      that are at risk of habitat loss due to urbanization in the Lake Tahoe, CA region.
+                    </p>
+
+                    <ul class="experience-links">
+                      <li id="experience-link-container">
+                        <a href="https://github.com/joaquin-mendoza8/habitat-conservation" id="experience-link" target="_blank">
+                          <span class="material-symbols-outlined" id="link-icon">
+                            link
+                          </span>
+                          GitHub Repo
+                        </a>
+                      </li>
+                    </ul>
+
+                    <ul class="technologies">
+                      <li class="tech-bubble">PyTorch</li>
+                      <li class="tech-bubble">Rasterio</li>
+                      <li class="tech-bubble">Numpy</li>
+                      <li class="tech-bubble">Pandas</li>
+                      <li class="tech-bubble">Matplotlib</li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </li>
+
           </ol>
 
         </div>

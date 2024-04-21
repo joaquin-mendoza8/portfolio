@@ -35,7 +35,8 @@
 }
 
 #home {
-    margin-top: 10vh;
+    /* center horizontally with vh */
+    margin-top: 15vh;
     position: fixed;
     top: 0;
     left: 50px; /* Adjust as needed */
@@ -296,7 +297,7 @@ a {
     opacity: 1;
 }
 
-.experience-card-section, .project-menu-section {
+.experience-card-section {
     margin-bottom: 10vh;
 }
 
@@ -373,21 +374,6 @@ a {
     flex-wrap: wrap;
 }
 
-.project-menu {
-    /* background-color: rgba(255, 255, 255, 0.1); */
-    /* box-shadow: 0px 0px 5px 0px rgba(10, 255, 202, 0.5); */
-    /* border-radius: 10px; */
-    display: inline-flex;
-    list-style: none;
-    padding: 1rem;
-    flex-wrap: wrap;
-}
-
-.selected, .project-menu-bubble:hover {
-    background-color: #003538 !important;
-    box-shadow: 0px 0px 5px 0px rgba(10, 255, 202, 0.5);
-}
-
 .experience-links {
     margin-bottom: 1rem;
 }
@@ -424,29 +410,43 @@ a {
 
 /* SECTION - PROJECTS MENU */
 
+.project-menu-section {
+    margin-bottom: 2vh;
+}
+
+.project-menu {
+    display: inline-flex;
+    list-style: none;
+    padding: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+}
+
+.selected, .project-menu-bubble:hover {
+    /* create a text underline */
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #0AFFCA !important;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 10px;
+}
+
 .project-menu-bubble {
     transition: transform 0.1s ease-in-out;
-    background-color: rgba(10, 255, 153, 0.08);
-    color: rgb(10, 255, 153);
-
-    font-weight: 500;
+    color: white !important;
+    font-weight: 600;
+    kerning: auto;
     font-size: 1rem;
     border-radius: 9999px;
     padding: 0.3rem 1rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.25rem;
+    margin-right: 0.75rem;
+    margin-bottom: 0.50rem;
     opacity: 1;
-
 }
 
 .project-menu-bubble:hover {
-    background-color: rgba(10, 255, 153, 0.2);
-    color: rgb(10, 255, 153);
-    /* font-weight: 700; */
-
-    /* focus in on the card */
-    transform: scale(1.05);
-    transition: transform 0.1s ease-in-out;
+    color: #0AFFCA;
+    cursor: pointer;
 }
 
 /* SECTION - PROJECTS */
