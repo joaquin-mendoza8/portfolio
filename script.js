@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // UPDATE NAV LINKS ON SCROLL --------------------------------------------
 
     // Get all navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('#nav-list a');
 
     // Add event listener for scroll
     window.addEventListener('scroll', () => {
@@ -107,9 +107,14 @@ function updateNavLinks(navLinks) {
         link.classList.remove('active');
 
         // Add active class to the link corresponding to the current section
-        if (link.getAttribute('href') === `#${sectionId}`) {
+        if (link.id === `${sectionId}-nav`)
           link.classList.add('active');
+
+        // If reached bottom of page, show openPdfViewer
+        if (scrollPosition >= (document.body.scrollHeight - window.innerHeight)) {
+          document.getElementById('openViewerButton').classList.add('active');
         }
+
       });
     }
   });
@@ -144,6 +149,8 @@ function updateBlobSize() {
     const blobLeft = pxToV(blobLeftPx, window.innerWidth);
     const blobTop = pxToV(blobTopPx, window.innerHeight);
 
+    var prevScrollDirection = 0;
+
     // add scroll event listener
     window.addEventListener('scroll', function() {
 
@@ -168,6 +175,22 @@ function updateBlobSize() {
         // get blob height
         height = initHeight + (blobPercent * 0.79);
 
+        var blobPixelHeight = computedStyle.getPropertyValue('height');
+        var blobPixelWidth = computedStyle.getPropertyValue('width');
+
+        var blobPixelMaxHeight = computedStyle.getPropertyValue('max-height');
+        var blobPixelMaxWidth = computedStyle.getPropertyValue('max-width');
+
+        // Check the actual direction of the scroll (up/down)
+        if (prevScrollDirection < scrollDirection) { // scroll is downwards
+
+          // limit blob enlarge to max-width/height of blob from CSS
+          if (blobPixelHeight >= blobPixelMaxHeight || blobPixelWidth >= blobPixelMaxWidth) {
+            return;
+          }
+
+        }
+
         // set blob width and height
         blob.style.width = width + 'vw';
         blob.style.height = height + 'vh';
@@ -179,6 +202,9 @@ function updateBlobSize() {
         // set blob left and top position
         blob.style.left = left + 'vw';
         blob.style.top = top + 'vh';
+
+        // set previous scroll direction to current direction
+        prevScrollDirection = scrollDirection;
 
     });
 }

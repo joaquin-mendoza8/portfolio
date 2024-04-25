@@ -138,9 +138,10 @@ li {
     display: flex;
     margin-top: 10vh;
     margin-bottom: 10vh;
+    text-decoration: none;
 }
 
-#nav-link, #openViewerButton {
+.nav-link, #openViewerButton, #experience-nav, #projects-nav, #home-nav {
     font-size: 0.85rem;
     text-transform: uppercase;
     color: var(--light-color);
@@ -149,13 +150,13 @@ li {
     transition: margin-left 0.3s ease-in-out;
 }
 
-#nav-link:hover, #openViewerButton:hover, .nav-link.px-0.active {
+#nav-link:hover, #openViewerButton:hover, .nav-link.px-0.active, #experience-nav:hover, #projects-nav:hover, #home-nav:hover {
     visibility: visible;
     font-weight: 700;
     margin-left: 1.2rem;
 }
 
-#nav-link:hover .nav-blob-indicator {
+#nav-link:hover .nav-blob-indicator, #experience-nav:hover, #projects-nav:hover, #home-nav:hover {
     visibility: visible;
 }
 
@@ -163,7 +164,19 @@ li {
     visibility: visible;
 }
 
+#experience-nav:hover .nav-blob-indicator {
+    visibility: visible;
+}
+
+#projects-nav:hover .nav-blob-indicator {
+    visibility: visible;
+}
+
 .nav-link.px-0.active .nav-blob-indicator {
+    visibility: visible;
+}
+
+#home-nav:hover .nav-blob-indicator {
     visibility: visible;
 }
 
@@ -492,6 +505,10 @@ body {
     top: 10vh;
     width: 40%;
     height: 80%;
+    max-width: 850px;
+    max-height: 950px;
+    min-width: 250px;
+    min-height: 350px;
     background: #17141d;
     border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
     box-shadow: 0px 0px 15px 0px rgb(10, 255, 202);
