@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    displayExperience('pro');
+
     // MAINTAIN BLOB PROPORTIONS ----------------------------------------
 
     // get blob
