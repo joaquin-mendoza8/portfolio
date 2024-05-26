@@ -219,7 +219,7 @@ function pxToV(px, windowSize) {
 function displayContent(categoryId) {
 
   // list of all project category id's
-  const categories = ['ml', 'web-dev', 'dev-ops'];
+  const categories = ['ml', 'web-dev', 'dev-ops', 'os'];
 
   for (var i = 0; i < categories.length; i++) {
 
@@ -264,10 +264,15 @@ function displayContent(categoryId) {
     case 'dev-ops':
       document.getElementById('dev-btn').classList.add('selected');
       break;
+    case 'os':
+      document.getElementById('os-btn').classList.add('selected');
+      break;
     case 'all':
       document.getElementById('all-btn').classList.add('selected');
       break;
   }
+
+
 
 }
 
@@ -298,7 +303,7 @@ function displayExperience(categoryId) {
   var menuBubbles = document.querySelectorAll(".project-menu-bubble");
   menuBubbles = Array.from(menuBubbles).filter((e) => ['pro-btn', 'leader-btn'].includes(e.id));
 
-  console.log(menuBubbles);
+  // console.log(menuBubbles);
 
   menuBubbles.forEach((b) => {
     if (b.classList.contains('selected')) {
