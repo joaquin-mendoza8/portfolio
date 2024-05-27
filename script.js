@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // DISPLAY CONTENT BASED ON CATEGORY SELECTED -----------------------
     displayExperience('pro');
 
     // MAINTAIN BLOB PROPORTIONS ----------------------------------------
